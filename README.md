@@ -1,4 +1,4 @@
-#Proyecto hecho en Angular + Django
+# Proyecto hecho en Angular + Django
 
 - Instalación del proyecto de Angular:
 
