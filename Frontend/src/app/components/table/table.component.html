@@ -1,0 +1,26 @@
+<table class="table">
+  <thead class="table__head">
+    <tr class="table__row">
+      <th>ID</th>
+      <th>Nombres</th>
+      <th>Apellidos</th>
+      <th>Edad</th>
+      <th>Salario</th>
+      <th>Accion</th>
+    </tr>
+  </thead>
+  <tbody class="table__body">
+    <tr *ngFor="let employee of employees" routerLink="{{employee.id}}" class="table__row">
+      <td>{{ employee.id }}</td>
+      <td>{{ employee.firstName }}</td>
+      <td>{{ employee.lastName }}</td>
+      <td>{{ employee.age }}</td>
+      <td>{{ employee.salary }}</td>
+      <td>
+        <button (click)="deleteEmployee(employee.id, $event)" class="button button__danger">
+          Eliminar
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

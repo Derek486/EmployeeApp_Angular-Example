@@ -1,0 +1,35 @@
+th, td {
+  text-align: left;
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table__body .table__row {
+  transition: .1s ease-in-out;
+}
+.table__body .table__row:hover {
+  background-color: #b0b0b075;
+}
+.table__row th {
+  border-bottom: 2px solid black;
+  user-select: none;
+  padding: 5px 15px;
+}
+.table__row td {
+  padding: 15px;
+  cursor: pointer;
+}
+.button {
+  padding: .5rem 1rem;
+  border: none;
+  cursor: pointer;
+  transition: .2s ease-in-out;
+}
+.button__danger {
+  background-color: rgb(188, 48, 48);
+  color: white;
+}
+.button__danger:hover {
+  background-color: rgb(163, 10, 10);
+}

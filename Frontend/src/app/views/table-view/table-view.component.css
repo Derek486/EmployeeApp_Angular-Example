@@ -1,0 +1,19 @@
+.container {
+  max-width: 80%;
+  margin: 0 auto;
+  display: flex;
+  row-gap: 2rem;
+  flex-direction: column;
+}
+@media screen and (min-width: 720px) {
+  .card {
+    width: 20rem;
+  }
+  .container {
+    flex-direction: row;
+    column-gap: 2rem;
+  }
+  .table-parent {
+    width: 65%;
+  }
+}

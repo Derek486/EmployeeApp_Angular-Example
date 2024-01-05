@@ -1,0 +1,27 @@
+<div class="form-parent">
+  <form class="form" [formGroup]="formData" (submit)="submit()">
+    <div class="form__title">
+      <h2>{{title}}</h2>
+    </div>
+    <div class="form__group">
+      <input type="text" placeholder="Nombres" name="firstName" formControlName="firstName" required>
+    </div>
+    <div class="form__group">
+      <input type="text" placeholder="Apellidos" name="lastName" formControlName="lastName"  required>
+    </div>
+    <div class="form__group">
+      <input type="number" step="1" min="18" name="age" formControlName="age"  placeholder="Edad" required>
+    </div>
+    <div class="form__group">
+      <input type="number" step="0.01" min="100" name="salary" formControlName="salary"  placeholder="Salario" required>
+    </div>
+    <div class="form__submit">
+      <button type="submit" class="button">
+        {{title_button}}
+      </button>
+      <button type="button" class="button button--danger" routerLink="../" *ngIf="hasButtonBack">
+        Volver
+      </button>
+    </div>
+  </form>
+</div>
