@@ -12,5 +12,5 @@ app.get('/', (req, res) => {
 })
 
 app.listen(app.get('PORT'), () => {
-    console.log(`Server runing in http://localhost:${app.get('PORT')}`);
+    console.log(`Server runing on http://localhost:${app.get('PORT')}`);
 })
