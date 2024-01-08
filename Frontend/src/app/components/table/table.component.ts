@@ -10,11 +10,11 @@ import { EmployeeServiceService } from 'src/app/services/employee-service.servic
 export class TableComponent{
 
   @Input() employees : any
-  @Output() deletedEmployee = new EventEmitter<number>()
+  @Output() deletedEmployee = new EventEmitter<number | string>()
 
   constructor(private service : EmployeeServiceService) { }
 
-  deleteEmployee(id : number, event : Event) {
+  deleteEmployee(id : number | string, event : Event) {
     event.stopPropagation()
     this.service.delete(id).subscribe((res : any) => {
       this.deletedEmployee.emit(id)

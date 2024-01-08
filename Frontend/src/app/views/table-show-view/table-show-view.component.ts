@@ -11,6 +11,7 @@ import { EmployeeServiceService } from 'src/app/services/employee-service.servic
 export class TableShowViewComponent implements OnInit{
 
   employee !: Employee
+  errores : Record<string, string> = {}
 
   constructor(private service : EmployeeServiceService, private router : Router) { }
 
@@ -18,16 +19,24 @@ export class TableShowViewComponent implements OnInit{
 
     const routes = this.router.url.split('/')
     const id = routes[routes.length-1];
-
-    this.service.show(Number(id)).subscribe((data : Employee) => {
+    
+    this.service.show(id).subscribe((data : Employee) => {
       this.employee = data
     })
 
   }
 
   updateEmployee(employee : Employee) {
-    this.service.update(employee.id, employee).subscribe((res : any) => {
-      this.router.navigate(['/table'])
+    this.service.update(employee.id, employee).subscribe({
+      next: (res : any) => {
+        this.router.navigate(['/table'])
+      },
+      error: (err : any) => {
+        err.error.errors.forEach((element : any) => {
+          let error = Object.entries(element)[0]
+          this.errores[error[0] as string] = error[1] as string
+        });
+      }
     })
   }
 }

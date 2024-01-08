@@ -5,15 +5,27 @@
     </div>
     <div class="form__group">
       <input type="text" placeholder="Nombres" name="firstName" formControlName="firstName" required>
+      <div *ngIf="errores['firstName']">
+        {{errores['firstName']}}
+      </div>
     </div>
     <div class="form__group">
       <input type="text" placeholder="Apellidos" name="lastName" formControlName="lastName"  required>
+      <div *ngIf="errores['lastName']">
+        {{errores['lastName']}}
+      </div>
     </div>
     <div class="form__group">
       <input type="number" step="1" min="18" name="age" formControlName="age"  placeholder="Edad" required>
+      <div *ngIf="errores['age']">
+        {{errores['age']}}
+      </div>
     </div>
     <div class="form__group">
       <input type="number" step="0.01" min="100" name="salary" formControlName="salary"  placeholder="Salario" required>
+      <div *ngIf="errores['salary']">
+        {{errores['salary']}}
+      </div>
     </div>
     <div class="form__submit">
       <button type="submit" class="button">

@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class EmployeeServiceService {
 
-  private urlApi = 'http://127.0.0.1:8000/api/v1/';
+  private urlApi = 'http://localhost:8001/api/v1/';
   public employees !: Employee[]
 
   constructor(private httpClient : HttpClient) {
@@ -24,15 +24,15 @@ export class EmployeeServiceService {
     return this.httpClient.post(`${this.urlApi}employees/`, data)
   }
 
-  show(id : number) : Observable<Employee>{
+  show(id : number | string) : Observable<Employee>{
     return this.httpClient.get<Employee>(`${this.urlApi}employees/${id}/`)
   }
 
-  update(id: number, employee: Employee) : Observable<any> {
+  update(id: number | string, employee: Employee) : Observable<any> {
     return this.httpClient.put(`${this.urlApi}employees/${id}/`, employee)
   }
 
-  delete(id: number) : Observable<any> {
+  delete(id: number | string) : Observable<any> {
     return this.httpClient.delete(`${this.urlApi}employees/${id}/`)
   }
 

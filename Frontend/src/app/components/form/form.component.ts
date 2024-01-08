@@ -12,6 +12,7 @@ export class FormComponent implements OnChanges {
   @Input() title_button !: string
   @Input() hasButtonBack : boolean = false
   @Input() employee !: Employee
+  @Input() errores !: Record<string, string>
   @Output() submitData = new EventEmitter<Employee>()
 
   formData : FormGroup = new FormGroup({

@@ -2,6 +2,7 @@
   <div class="card">
     <app-form [title]="'Registro de empleados'"
               [title_button]="'Registrar empleado'"
+              [errores]="errores"
               (submitData)="createEmployee($event)">
     </app-form>
   </div>

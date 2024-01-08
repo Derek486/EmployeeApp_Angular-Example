@@ -2,6 +2,7 @@
   <div class="card">
     <app-form [title]="'Edicion de empleados'"
               [title_button]="'Editar empleado'"
+              [errores]="errores"
               [employee]="employee"
               [hasButtonBack]="true"
               (submitData)="updateEmployee($event)">

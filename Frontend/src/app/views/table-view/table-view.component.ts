@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Employee } from 'src/app/interfaces/Employee';
+import { Employee, EmployeeErrores } from 'src/app/interfaces/Employee';
 import { EmployeeServiceService } from 'src/app/services/employee-service.service';
 
 @Component({
@@ -10,6 +10,7 @@ import { EmployeeServiceService } from 'src/app/services/employee-service.servic
 export class TableViewComponent implements OnInit {
 
   employees : Employee[] = []
+  errores : Record<string, string> = {}
 
   constructor(private service : EmployeeServiceService) { }
 
@@ -19,7 +20,7 @@ export class TableViewComponent implements OnInit {
     })
   }
 
-  popEmployeeList(id : number) {
+  popEmployeeList(id : number | string) {
     this.employees = this.employees.filter((employee : Employee) => employee.id !== id)
   }
 
@@ -30,8 +31,10 @@ export class TableViewComponent implements OnInit {
         this.employees.push(employee)
       },
       error: (err : any) => {
-        console.log(err);
-
+        err.error.errors.forEach((element : any) => {
+          let error = Object.entries(element)[0]
+          this.errores[error[0] as string] = error[1] as string
+        });
       }
     })
   }
