@@ -21,10 +21,7 @@ app.use(morgan("dev"));
 app.set('PORT', config.PORT)
 
 // Definición de rutas
-app.get('/', (req, res) => {
-    res.json({
-        message: 'Hello word'
-    })
-})
+const routesEmployee = require('./routes/employees.routes')
+app.use('/api/v1/', routesEmployee)
 
 module.exports = app
