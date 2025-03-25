@@ -79,6 +79,3 @@ EmployeeApp/
 
 ### Employee Details
 <img src="./preview/show_employee.png">
-
-## 📜 License
-This project is licensed under the **MIT License**. Feel free to use and modify it!
